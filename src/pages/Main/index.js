@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Keyboard, Alert } from 'react-native';
+import { Keyboard, Alert, ActivityIndicator } from 'react-native';
 
 import api from '../../services/api';
 
@@ -23,9 +23,12 @@ import {
 const Main = () => {
     const [users, setUsers] = useState([]);
     const [newUser, setNewUser] = useState('');
+    const [loading, setLoading] = useState(false);
 
     const handleAddUser = async () => {
         let userData = users;
+
+        setLoading(true);
 
         try {
             const response = await api.get(`/users/${newUser}`);
@@ -47,7 +50,11 @@ const Main = () => {
                 'Ops... Algo deu errado!',
                 'Verifique os dados e tente novamente.'
             );
+
+            setLoading(false);
         }
+
+        setLoading(false);
 
         Keyboard.dismiss();
     };
@@ -64,8 +71,12 @@ const Main = () => {
                     placeholder="Adicionar usuário"
                     onChangeText={(text) => setNewUser(text)}
                 />
-                <SubmitButton onPress={handleAddUser}>
-                    <Icon name="add" size={20} color="#FFF" />
+                <SubmitButton loading={loading} onPress={handleAddUser}>
+                    {loading ? (
+                        <ActivityIndicator color="#FFF" />
+                    ) : (
+                        <Icon name="add" size={20} color="#FFF" />
+                    )}
                 </SubmitButton>
             </Form>
 
