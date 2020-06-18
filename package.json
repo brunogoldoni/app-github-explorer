@@ -1,5 +1,5 @@
 {
-    "name": "project",
+    "name": "project-to-study",
     "version": "0.0.1",
     "private": true,
     "scripts": {
@@ -10,8 +10,16 @@
         "lint": "eslint ."
     },
     "dependencies": {
+        "@react-native-community/masked-view": "^0.1.10",
+        "@react-navigation/bottom-tabs": "^5.5.1",
+        "@react-navigation/native": "^5.5.1",
+        "@react-navigation/stack": "^5.5.1",
         "react": "16.11.0",
         "react-native": "0.62.2",
+        "react-native-gesture-handler": "^1.6.1",
+        "react-native-reanimated": "^1.9.0",
+        "react-native-safe-area-context": "^3.0.5",
+        "react-native-screens": "^2.8.0",
         "reactotron-react-native": "^5.0.0"
     },
     "devDependencies": {
@@ -20,14 +28,9 @@
         "@react-native-community/eslint-config": "^2.0.0",
         "babel-eslint": "^10.1.0",
         "babel-jest": "^26.0.1",
-        "eslint": "^6.8.0",
-        "eslint-config-airbnb": "^18.1.0",
+        "eslint": "^7.2.0",
         "eslint-config-prettier": "^6.11.0",
-        "eslint-plugin-import": "^2.21.2",
-        "eslint-plugin-jsx-a11y": "^6.2.3",
         "eslint-plugin-prettier": "^3.1.4",
-        "eslint-plugin-react": "^7.20.0",
-        "eslint-plugin-react-hooks": "^2.5.1",
         "jest": "^26.0.1",
         "metro-react-native-babel-preset": "^0.59.0",
         "prettier": "^2.0.5",
