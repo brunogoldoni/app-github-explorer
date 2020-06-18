@@ -13,8 +13,8 @@ const Routes = () => {
         <NavigationContainer>
             <Stack.Navigator initialRouteName="Main">
                 <Stack.Screen
-                    name="User"
-                    component={User}
+                    name="Usuários"
+                    component={Main}
                     options={{
                         headerTitleStyle: {
                             flexGrow: 1,
@@ -28,8 +28,8 @@ const Routes = () => {
                     }}
                 />
                 <Stack.Screen
-                    name="Main"
-                    component={Main}
+                    name="User"
+                    component={User}
                     options={{
                         headerTitleStyle: {
                             flexGrow: 1,
