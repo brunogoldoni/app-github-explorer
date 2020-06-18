@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './config/ReactotronConfig';
+
 import { StyleSheet, View, Text } from 'react-native';
 
 const styles = StyleSheet.create({
@@ -15,6 +17,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
 });
+
+console.tron.log('Hello Bruno');
 
 const App = () => {
     return (
