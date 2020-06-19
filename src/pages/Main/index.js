@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import { useNavigation } from '@react-navigation/native';
 import { Keyboard, Alert, ActivityIndicator } from 'react-native';
 
 import api from '../../services/api';
@@ -21,6 +22,7 @@ import {
 } from './styles';
 
 const Main = () => {
+    const navigation = useNavigation();
     const [users, setUsers] = useState([]);
     const [newUser, setNewUser] = useState('');
     const [loading, setLoading] = useState(false);
@@ -59,6 +61,10 @@ const Main = () => {
         Keyboard.dismiss();
     };
 
+    handleNavigate = (user) => {
+        navigation.navigate('User', { user });
+    };
+
     return (
         <Container>
             <Form>
@@ -89,7 +95,7 @@ const Main = () => {
                         <Name>{item.name}</Name>
                         <Bio>{item.bio}</Bio>
 
-                        <ProfileButton onPress={() => {}}>
+                        <ProfileButton onPress={() => handleNavigate(item)}>
                             <ProfileButtonText>Ver Perfil</ProfileButtonText>
                         </ProfileButton>
                     </User>
