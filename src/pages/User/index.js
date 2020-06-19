@@ -46,7 +46,7 @@ const User = () => {
 
             <Stars
                 data={stars}
-                keyExtractor={(star) => String(stars.id)}
+                keyExtractor={(star) => String(star.id)}
                 renderItem={({ item }) => (
                     <Starred>
                         <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
