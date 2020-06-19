@@ -48,10 +48,17 @@ const Main = () => {
 
             setNewUser('');
         } catch (err) {
-            Alert.alert(
-                'Ops... Algo deu errado!',
-                'Verifique os dados e tente novamente.'
-            );
+            if (err.message === 'Request failed with status code 403') {
+                Alert.alert(
+                    'Ops... Algo deu errado.',
+                    'Limite de solicitação excedido.'
+                );
+            } else {
+                Alert.alert(
+                    'Ops... Algo deu errado!',
+                    'Verifique os dados e tente novamente.'
+                );
+            }
 
             setLoading(false);
         }
