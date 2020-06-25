@@ -50,14 +50,11 @@ const Main = () => {
         } catch (err) {
             if (err.message === 'Request failed with status code 403') {
                 Alert.alert(
-                    'Ops... Algo deu errado.',
-                    'Limite de solicitação excedido.'
+                    'Ops... Algo deu errado!',
+                    'Seu limite de solicitações foi excedido, tente novamente mais tarde.'
                 );
             } else {
-                Alert.alert(
-                    'Ops... Algo deu errado!',
-                    'Verifique os dados e tente novamente.'
-                );
+                Alert.alert('Ops... Algo deu errado!', 'Usuário inexistente.');
             }
 
             setLoading(false);
