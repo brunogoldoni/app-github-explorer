@@ -11,19 +11,9 @@ const Routes = () => {
     return (
         <Stack.Navigator
             initialRouteName="Main"
-            screenOptions={{
-                headerTitleStyle: {
-                    flexGrow: 1,
-                    textAlign: 'center',
-                    alignSelf: 'center',
-                },
-                headerStyle: {
-                    backgroundColor: '#7159c1',
-                },
-                headerTintColor: '#FFF',
-            }}
+            screenOptions={{ headerShown: false }}
         >
-            <Stack.Screen name="Usuários" component={Main} />
+            <Stack.Screen name="Main" component={Main} />
             <Stack.Screen name="User" component={User} />
         </Stack.Navigator>
     );
