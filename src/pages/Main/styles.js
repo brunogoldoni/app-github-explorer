@@ -20,6 +20,7 @@ export const Input = styled.TextInput.attrs({
     border: 1px solid #eee;
     border-radius: 4px;
     flex: 1;
+    font-family: 'RobotoSlab-Regular';
     height: 40px;
     padding: 0 15px;
 `;
@@ -54,7 +55,7 @@ export const Avatar = styled.Image`
 export const Name = styled.Text`
     color: #333;
     font-size: 14px;
-    font-weight: bold;
+    font-family: 'RobotoSlab-Bold';
     margin-top: 4px;
     text-align: center;
 `;
@@ -63,6 +64,7 @@ export const Bio = styled.Text.attrs({
     numberOfLine: 2,
 })`
     color: #999;
+    font-family: 'RobotoSlab-Regular';
     font-size: 13px;
     line-height: 18px;
     margin-top: 5px;
@@ -82,7 +84,7 @@ export const ProfileButton = styled(RectButton)`
 
 export const ProfileButtonText = styled.Text`
     color: #fff;
+    font-family: 'RobotoSlab-Bold';
     font-size: 14px;
-    font-weight: bold;
     text-transform: uppercase;
 `;

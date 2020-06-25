@@ -22,14 +22,15 @@ export const Avatar = styled.Image`
 
 export const Name = styled.Text`
     color: #333;
+    font-family: 'RobotoSlab-Bold';
     font-size: 20px;
-    font-weight: bold;
     margin-top: 10px;
     text-align: center;
 `;
 
 export const Bio = styled.Text`
     color: #999;
+    font-family: 'RobotoSlab-Regular';
     font-size: 14px;
     line-height: 18px;
     margin-top: 5px;
@@ -67,12 +68,13 @@ export const Title = styled.Text.attrs({
     numberOfLines: 1,
 })`
     color: #333;
+    font-family: 'RobotoSlab-Bold';
     font-size: 15px;
-    font-weight: bold;
 `;
 
 export const Author = styled.Text`
     color: #666;
-    font-size: 13px;
+    font-family: 'RobotoSlab-Light';
+    font-size: 12px;
     margin-top: 2px;
 `;

@@ -21,6 +21,6 @@ export const Icon = styled.View`
 
 export const Name = styled.Text`
     color: #fff;
+    font-family: 'RobotoSlab-Bold';
     font-size: 16px;
-    font-weight: bold;
 `;
