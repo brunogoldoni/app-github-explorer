@@ -6,7 +6,7 @@ export const Container = styled.View`
     background: #ffffff;
 `;
 
-export const Header = styled.View`
+export const HeaderProfile = styled.View`
     align-items: center;
     border-bottom-width: 1px;
     border-color: #eee;

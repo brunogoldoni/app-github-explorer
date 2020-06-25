@@ -1,12 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 import { useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 import api from '../../services/api';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
+import Header from '../../components/Header';
 import {
     Container,
-    Header,
+    HeaderProfile,
     Avatar,
     Name,
     Bio,
@@ -19,6 +23,8 @@ import {
 } from './styles';
 
 const User = () => {
+    const navigation = useNavigation();
+
     const route = useRoute();
     const user = route.params.user;
 
@@ -37,27 +43,39 @@ const User = () => {
     }, []);
 
     return (
-        <Container>
-            <Header>
-                <Avatar source={{ uri: user.avatar }} />
-                <Name>{user.name}</Name>
-                <Bio>{user.bio}</Bio>
+        <>
+            <Header user={user.name}>
+                <Icon
+                    name="arrow-back"
+                    size={26}
+                    color="#FFF"
+                    onPress={() => navigation.goBack()}
+                />
             </Header>
+            <Container>
+                <HeaderProfile>
+                    <Avatar source={{ uri: user.avatar }} />
+                    <Name>{user.name}</Name>
+                    <Bio>{user.bio}</Bio>
+                </HeaderProfile>
 
-            <Stars
-                data={stars}
-                keyExtractor={(star) => String(star.id)}
-                renderItem={({ item }) => (
-                    <Starred>
-                        <OwnerAvatar source={{ uri: item.owner.avatar_url }} />
-                        <Info>
-                            <Title>{item.name}</Title>
-                            <Author>{item.owner.login}</Author>
-                        </Info>
-                    </Starred>
-                )}
-            />
-        </Container>
+                <Stars
+                    data={stars}
+                    keyExtractor={(star) => String(star.id)}
+                    renderItem={({ item }) => (
+                        <Starred>
+                            <OwnerAvatar
+                                source={{ uri: item.owner.avatar_url }}
+                            />
+                            <Info>
+                                <Title>{item.name}</Title>
+                                <Author>{item.owner.login}</Author>
+                            </Info>
+                        </Starred>
+                    )}
+                />
+            </Container>
+        </>
     );
 };
 

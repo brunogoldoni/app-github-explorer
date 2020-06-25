@@ -5,7 +5,9 @@ import { Keyboard, Alert, ActivityIndicator } from 'react-native';
 
 import api from '../../services/api';
 
-import Icon from 'react-native-vector-icons/MaterialIcons';
+import Plus from 'react-native-vector-icons/MaterialIcons';
+
+import Header from '../../components/Header';
 
 import {
     Container,
@@ -70,42 +72,47 @@ const Main = () => {
     };
 
     return (
-        <Container>
-            <Form>
-                <Input
-                    value={newUser}
-                    autoCorrect={false}
-                    returnKeyType="send"
-                    autoCapitalize="none"
-                    onSubmitEditing={handleAddUser}
-                    placeholder="Adicionar usuário"
-                    onChangeText={(text) => setNewUser(text)}
-                />
-                <SubmitButton loading={loading} onPress={handleAddUser}>
-                    {loading ? (
-                        <ActivityIndicator color="#FFF" />
-                    ) : (
-                        <Icon name="add" size={20} color="#FFF" />
+        <>
+            <Header user="Usuários" />
+            <Container>
+                <Form>
+                    <Input
+                        value={newUser}
+                        autoCorrect={false}
+                        returnKeyType="send"
+                        autoCapitalize="none"
+                        onSubmitEditing={handleAddUser}
+                        placeholder="Adicionar usuário"
+                        onChangeText={(text) => setNewUser(text)}
+                    />
+                    <SubmitButton loading={loading} onPress={handleAddUser}>
+                        {loading ? (
+                            <ActivityIndicator color="#FFF" />
+                        ) : (
+                            <Plus name="add" size={20} color="#FFF" />
+                        )}
+                    </SubmitButton>
+                </Form>
+
+                <List
+                    data={users}
+                    keyExtractor={(user) => user.login}
+                    renderItem={({ item }) => (
+                        <User>
+                            <Avatar source={{ uri: item.avatar }} />
+                            <Name>{item.name}</Name>
+                            <Bio>{item.bio}</Bio>
+
+                            <ProfileButton onPress={() => handleNavigate(item)}>
+                                <ProfileButtonText>
+                                    Ver Perfil
+                                </ProfileButtonText>
+                            </ProfileButton>
+                        </User>
                     )}
-                </SubmitButton>
-            </Form>
-
-            <List
-                data={users}
-                keyExtractor={(user) => user.login}
-                renderItem={({ item }) => (
-                    <User>
-                        <Avatar source={{ uri: item.avatar }} />
-                        <Name>{item.name}</Name>
-                        <Bio>{item.bio}</Bio>
-
-                        <ProfileButton onPress={() => handleNavigate(item)}>
-                            <ProfileButtonText>Ver Perfil</ProfileButtonText>
-                        </ProfileButton>
-                    </User>
-                )}
-            />
-        </Container>
+                />
+            </Container>
+        </>
     );
 };
 
